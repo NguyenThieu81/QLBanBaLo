@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Balo - Online Store</title>
+    <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+
+<body>
+<!-- Header -->
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">
+                <img src="/image/_07afef3b-1936-4adf-90e4-1438ea791bd4-removebg-preview.png" alt="Logo" style="max-height: 40px;">
+                Balo Store
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categories">Danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/brands">Thương hiệu</a>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Content -->
+<div th:fragment="content">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div th:replace="${content}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:fragment="footer">
+    <div class="container-fluid bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Balo Store</h5>
+                    <p>Your go-to shop for the best quality products.</p>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contact</h5>
+                    <p>Email: thieu080103@gmail.com<br>Phone: +84 363 447 701</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3 bg-light">
+            &copy; Balo Store
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Thương hiệu</title>
+    <th:block th:replace="~{layout :: link-css}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout::header}"></th:block>
+<div class="container">
+    <h1 th:text="${title}">Danh sách Thương Hiệu</h1>
+    <a class="btn btn-primary mb-3" th:href="@{/brands/add}">Thêm mới</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên thương hiệu</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="brand : ${brands}">
+            <td th:text="${brand.id}"></td>
+            <td th:text="${brand.name}"></td>
+            <td>
+                <a th:href="@{/brands/edit/{id}(id=${brand.id})}" class="btn btn-sm btn-primary">Sửa</a>
+                <a th:href="@{/brands/edit/{id}(id=${brand.id})}" class="btn btn-sm btn-danger">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<th:block th:replace="~{layout:: footer}"></th:block>
+</body>
+</html>

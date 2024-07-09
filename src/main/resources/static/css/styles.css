@@ -1,0 +1,22 @@
+/* Add custom styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+    .img-thumbnail {
+        width: 150px; /* Điều chỉnh chiều rộng hình ảnh */
+        height: auto; /* Giữ tỷ lệ khung hình */
+    }
+

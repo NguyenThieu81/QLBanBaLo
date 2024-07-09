@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Sản phẩm</title>
+    <th:block th:replace="~{layout :: link-css}"></th:block>
+</head>
+<body>
+<th:block th:replace="~{layout::header}"></th:block>
+
+<div class="container mt-4">
+    <h1 th:text="${title}">Danh sách Sản phẩm</h1>
+    <a class="btn btn-primary mb-3" th:href="@{/products/add}">Thêm mới</a>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Hình Ảnh</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thương hiệu</th>
+            <th>Danh mục</th>
+            <th>Chức năng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td><img th:if="${product.imagePath}" th:src="@{${product.imagePath}}" alt="Product Image" class="img-thumbnail"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.quantity}"></td>
+            <td th:text="${product.brand.name}"></td>
+            <td th:text="${product.category.name}"></td>
+            <td>
+                <a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-sm btn-primary">Sửa</a>
+                <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<th:block th:replace="~{layout:: footer}"></th:block>
+</body>
+</html>
+<style>
+
+    .img-thumbnail {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+</style>
